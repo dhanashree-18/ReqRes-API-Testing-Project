@@ -23,7 +23,7 @@ def test_create_user(users_api):
     "name": "Mini",
     "job": "QA Tester"
     }
-    response = users_api.create_user(payload)
+    response = users_api.create_user(payload=payload)
     data = response.json()
     assert response.status_code == 201
     assert "id" in data
@@ -37,7 +37,7 @@ def test_update_user(users_api):
         "name": "Mini",
         "job": "senior QA Tester"
     }
-    response = users_api.update_user(2, payload)
+    response = users_api.update_user(user_id=2, payload=payload)
     data = response.json()
     assert response.status_code == 200
     assert data["name"] == "Mini"
@@ -46,7 +46,7 @@ def test_update_user(users_api):
 
 @pytest.mark.delete
 def test_delete_user(users_api):
-    response = users_api.delete_user(2)
+    response = users_api.delete_user(user_id=2)
     assert response.status_code == 204
 
 @pytest.mark.get

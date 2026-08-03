@@ -6,6 +6,7 @@ on:
       - main
       - feature/cicd
       - feature/pom
+      - feature/consistent-keyword-args
   pull_request:
     branches:
       - main
